@@ -5,6 +5,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { AssignmentsComponent } from './assignments/assignments.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { AssignmentsComponent } from './assignments/assignments.component';
     CommonModule,
     MatDividerModule,
     MatIconModule,
-    AssignmentsComponent
+    AssignmentsComponent,
+    MatCheckboxModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
