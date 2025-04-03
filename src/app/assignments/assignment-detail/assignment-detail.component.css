@@ -1,5 +1,90 @@
 .button-container {
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     justify-content: flex-end;
+    gap: 12px;
+}
+
+.container {
+    padding: 20px 0;
+    animation: fadeIn 0.3s ease-out;
+    width: 75%;
+    align-self: center;
+    margin: 0 auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container mat-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.container mat-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.container mat-card-content {
+    padding: 16px;
+}
+
+.container mat-card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.container mat-card-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.container mat-checkbox {
+    margin-top: 16px;
+    display: block;
+}
+
+.container mat-checkbox:hover {
+    opacity: 0.85;
+}
+
+app-delete-assignment button {
+    transition: all 0.2s ease;
+}
+
+app-delete-assignment button:hover {
+    background-color: rgba(244, 67, 54, 0.1);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px 0;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .button-container button {
+        width: 100%;
+    }
+
+    .container mat-card-title {
+        font-size: 1.2rem;
+    }
 }

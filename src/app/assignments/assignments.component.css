@@ -1,17 +1,164 @@
 .rendu {
-    background-color: lightgreen;
+    background-color: rgba(76, 175, 80, 0.2);
+    border-left: 4px solid #4CAF50;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+    max-height: 75%;
+}
+
+.rendu:hover {
+    background-color: rgba(76, 175, 80, 0.3);
+    transform: translateX(4px);
 }
 
 .nonRendu {
-    background-color: lightcoral;
+    background-color: rgba(244, 67, 54, 0.2);
+    border-left: 4px solid #F44336;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.nonRendu:hover {
+    background-color: rgba(244, 67, 54, 0.3);
+    transform: translateX(4px);
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
+}
+
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 2px solid transparent;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .addBtn {
     align-self: flex-end;
+    margin-bottom: 16px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.addBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+mat-list {
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    overflow: visible;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: block;
+}
+
+mat-list-item {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    height: auto !important;
+
+    min-height: 48px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+::ng-deep .mat-list-item-content {
+    height: auto !important;
+    padding: 8px 0 !important;
+    display: block !important;
+}
+
+::ng-deep .mat-line {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
+
+h3[mat-subheader] {
+    background-color: rgba(0, 0, 0, 0.04);
+    color: #555;
+    font-weight: 500;
+    padding: 12px 16px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+mat-list-item {
+    animation: fadeIn 0.3s ease-out;
+    animation-fill-mode: both;
+}
+
+mat-list-item:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+mat-list-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+mat-list-item:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+mat-list-item:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+mat-list-item:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 12px;
+    }
+
+    .addBtn {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
 }

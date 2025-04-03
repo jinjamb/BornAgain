@@ -1,50 +1,112 @@
 section {
-    display: table;
-  }
-  
-  .example-label {
-    display: table-cell;
-    font-size: 14px;
-    margin-left: 8px;
-    min-width: 120px;
-  }
-  
-  .example-button-row {
-    display: table-cell;
-    max-width: 600px;
-  }
-  
-  .example-button-row .mat-mdc-button-base {
-    margin: 8px 8px 8px 0;
-  }
-  
-  .example-flex-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .example-button-container {
-    display: flex;
-    justify-content: center;
-    width: 140px;
-  }
+  display: table;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
 
-  .fab-button1 {
-      background-color: lightgreen;
-      color: white;
-  }
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+  font-weight: 500;
+  color: #555;
+}
 
-  .fab-button2 {
-      background-color: lightcoral;
-      color: white;
-  }
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
 
-  .fab-button3 {
-      background-color: lightskyblue;
-      color: white;
-  }
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+  transition: all 0.2s ease;
+}
 
-  .fab-button4 {
-      color: white;
+.example-button-row .mat-mdc-button-base:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  gap: 16px;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 140px;
+}
+
+/* Styles améliorés pour les boutons spéciaux */
+.fab-button1 {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(76, 175, 80, 0.3) !important;
+}
+
+.fab-button1:hover {
+  background-color: #43a047 !important;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.fab-button2 {
+  background-color: #f44336 !important;
+  color: white !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(244, 67, 54, 0.3) !important;
+}
+
+.fab-button2:hover {
+  background-color: #e53935 !important;
+  box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.fab-button3 {
+  background-color: #2196F3 !important;
+  color: white !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(33, 150, 243, 0.3) !important;
+}
+
+.fab-button3:hover {
+  background-color: #1e88e5 !important;
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.fab-button4 {
+  color: white !important;
+  background-color: #9C27B0 !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(156, 39, 176, 0.3) !important;
+}
+
+.fab-button4:hover {
+  background-color: #8e24aa !important;
+  box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+/* Ajout d'un conteneur principal pour centrer le contenu */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    padding: 16px;
   }
+}
