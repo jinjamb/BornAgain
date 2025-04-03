@@ -13,6 +13,7 @@ import { AssignmentDetailComponent } from "./assignment-detail/assignment-detail
 import { MatList } from '@angular/material/list';
 import { MatListItem, MatDivider } from '@angular/material/list';
 import { AddAssignmentComponent } from "./add-assignment/add-assignment.component";
+import { DeleteAssignmentComponent } from "./delete-assignment/delete-assignment.component";
 
 @Component({
   selector: 'app-assignments',
@@ -26,7 +27,8 @@ import { AddAssignmentComponent } from "./add-assignment/add-assignment.componen
     MatNativeDateModule, AssignmentDetailComponent,
     MatList,
     MatListItem,
-    MatDivider, AddAssignmentComponent],
+    MatDivider,
+    AddAssignmentComponent],
   templateUrl: './assignments.component.html',
   styleUrl: './assignments.component.css'
 })
@@ -45,7 +47,7 @@ export class AssignmentsComponent implements OnInit {
   formVisible = false;
 
   ngOnInit(): void {
-    setTimeout(() => { this.ajoutActive = true;}, 2000);
+    setTimeout(() => { this.ajoutActive = true; }, 2000);
   }
 
   /*onSubmit(){
@@ -68,6 +70,13 @@ export class AssignmentsComponent implements OnInit {
     this.assignments.push(event);
     this.formVisible = false;
   }
-  
-  constructor() {}
+
+  onDeleteAssignment(event: Assignment) {
+    const index = this.assignments.indexOf(event);
+    if (index > -1) {
+      this.assignments.splice(index, 1);
+      this.assignmentSelected = undefined!;
+    }
+  }
+  constructor() { }
 }
