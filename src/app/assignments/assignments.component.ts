@@ -7,13 +7,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { Assignment } from './assignment.model';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AssignmentDetailComponent } from "./assignment-detail/assignment-detail.component";
 import { MatList } from '@angular/material/list';
 import { MatListItem, MatDivider } from '@angular/material/list';
 import { AddAssignmentComponent } from "./add-assignment/add-assignment.component";
 import { DeleteAssignmentComponent } from "./delete-assignment/delete-assignment.component";
+import { AssignmentsService } from '../shared/assignments.service';
+import { Assignment } from './assignment.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-assignments',
@@ -36,18 +38,21 @@ import { DeleteAssignmentComponent } from "./delete-assignment/delete-assignment
 export class AssignmentsComponent implements OnInit {
   ajoutActive = false
   titre = "App on assignments!"
-  assignments: Assignment[] = [
-    { nom: "TP1 Webcomp", dateRendu: new Date("2025-10-10"), rendu: true },
-    { nom: "TP12 Stress", dateRendu: new Date("2025-10-11"), rendu: false },
-    { nom: "TP3 Unstreesss", dateRendu: new Date("2025-10-12"), rendu: false }
-  ];
   nomDevoir: string = "";
   dateRendu: Date = new Date();
   assignmentSelected!: Assignment;
   formVisible = false;
+  assignments!: Assignment[];
+
+  constructor (private AssignmentsService: AssignmentsService) {}
 
   ngOnInit(): void {
-    setTimeout(() => { this.ajoutActive = true; }, 2000);
+    //this.assignments = this.AssignmentsService.getAssignments();
+    this.getAssignments();
+  }
+
+  getAssignments() {
+    this.AssignmentsService.getAssignments().subscribe(assignments => this.assignments = assignments);
   }
 
   /*onSubmit(){
@@ -78,5 +83,9 @@ export class AssignmentsComponent implements OnInit {
       this.assignmentSelected = undefined!;
     }
   }
-  constructor() { }
+
+  onNouvelAssignment(event: Assignment) {
+    this.AssignmentsService.addAssignment(event).subscribe(message => console.log(message));
+    this.formVisible = false;
+  }
 }

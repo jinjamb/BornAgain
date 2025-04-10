@@ -3,10 +3,10 @@
         <mat-card-content>
             <mat-card-title>{{assignmentTransmis.nom}}</mat-card-title>
             <mat-card-subtitle>{{assignmentTransmis.dateRendu | date: 'dd-MM-yyyy'}}</mat-card-subtitle>
-            <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">Devoir rendu</mat-checkbox>
-            <div class="button-container">
-                <app-delete-assignment (assignmentDeleted)="onDeleteAssignment()"></app-delete-assignment>
-            </div>
+            <mat-card-actions id="bottom">
+                <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">Devoir rendu</mat-checkbox>
+                <button mat-flat-button id="delbutton" color="warn" (click)="onDeleteAssignment()">DELETE</button>
+            </mat-card-actions>
         </mat-card-content>
     </mat-card>
 </div>
