@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,17 +10,18 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-root',
-  imports: [ 
+  imports: [
+    RouterLink,
+    RouterOutlet,
     MatButtonModule, 
     CommonModule,
     MatDividerModule,
     MatIconModule,
-    AssignmentsComponent,
     MatCheckboxModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'ass-born-again';
+  title = 'Assignment Manager Application';
 }

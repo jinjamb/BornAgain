@@ -16,21 +16,22 @@ import { DeleteAssignmentComponent } from "./delete-assignment/delete-assignment
 import { AssignmentsService } from '../shared/assignments.service';
 import { Assignment } from './assignment.model';
 import { Observable } from 'rxjs';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-assignments',
   imports: [CommonModule,
-    //RenduDirective, 
+    RouterModule,
+    //RenduDirective,
     MatButtonModule,
     FormsModule,
     MatInputModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatNativeDateModule, AssignmentDetailComponent,
+    MatNativeDateModule,
     MatList,
     MatListItem,
-    MatDivider,
-    AddAssignmentComponent],
+    MatDivider],
   templateUrl: './assignments.component.html',
   styleUrl: './assignments.component.css'
 })
@@ -42,18 +43,19 @@ export class AssignmentsComponent implements OnInit {
   dateRendu: Date = new Date();
   assignmentSelected!: Assignment;
   formVisible = false;
-  assignments!: Assignment[];
 
-  constructor (private AssignmentsService: AssignmentsService) {}
+  assignments: Assignment[] = [];
 
   ngOnInit(): void {
-    //this.assignments = this.AssignmentsService.getAssignments();
     this.getAssignments();
   }
 
   getAssignments() {
-    this.AssignmentsService.getAssignments().subscribe(assignments => this.assignments = assignments);
+    this.AssignmentsService.getAssignments().subscribe(assignments => {this.assignments = assignments;});
   }
+
+  constructor (private AssignmentsService: AssignmentsService) {}
+
 
   /*onSubmit(){
     const newAssignment = new Assignment();
@@ -68,7 +70,7 @@ export class AssignmentsComponent implements OnInit {
   }
 
   onAddAssignmentBtnClicked() {
-    this.formVisible = true;
+    //this.formVisible = true;
   }
 
   onAddedAssignment(event: Assignment) {
@@ -84,8 +86,8 @@ export class AssignmentsComponent implements OnInit {
     }
   }
 
-  onNouvelAssignment(event: Assignment) {
+  /*onNouvelAssignment(event: Assignment) {
     this.AssignmentsService.addAssignment(event).subscribe(message => console.log(message));
     this.formVisible = false;
-  }
+  }*/
 }

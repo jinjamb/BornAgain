@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, /*EventEmitter, Output*/ } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,6 +7,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Assignment } from '../assignment.model';
+import { AssignmentsService } from '../../shared/assignments.service';
 
 @Component({
   selector: 'app-add-assignment',
@@ -23,10 +24,12 @@ import { Assignment } from '../assignment.model';
 })
 
 export class AddAssignmentComponent implements OnInit {
-  @Output() assignmentAdded = new EventEmitter<Assignment>();
+  //@Output() assignmentAdded = new EventEmitter<Assignment>();
 
   nomDevoir: string = "";
   dateRendu: Date = new Date();
+
+  constructor(private assignmentsService: AssignmentsService) { }
 
   ngOnInit(): void {
   }
@@ -37,6 +40,10 @@ export class AddAssignmentComponent implements OnInit {
     newAssignment.dateRendu = this.dateRendu;
     newAssignment.rendu = false;
 
-    this.assignmentAdded.emit(newAssignment);
+    this.assignmentsService.addAssignment(newAssignment).subscribe(
+      message => {
+        console.log(message);
+      }
+    );
   }
 }

@@ -9,14 +9,19 @@ import { LoggingService } from './logging.service';
 export class AssignmentsService {
 
   assignments: Assignment[] = [
-      { nom: "TP1 Webcomp", dateRendu: new Date("2025-10-10"), rendu: true },
-      { nom: "TP2 Stress", dateRendu: new Date("2025-10-11"), rendu: false },
-      { nom: "TP3 Unstreesss", dateRendu: new Date("2025-10-12"), rendu: false }
+      { id:1, nom: "TP1 Webcomp", dateRendu: new Date("2025-10-10"), rendu: true },
+      { id:2, nom: "TP2 Stress", dateRendu: new Date("2025-10-11"), rendu: false },
+      { id:3, nom: "TP3 Unstreesss", dateRendu: new Date("2025-10-12"), rendu: false }
     ];
 
   constructor(private loggingService:LoggingService) { }
 
-  getAssignments():Observable<Assignment[]> {
+  getAssignment(id:number):Observable<Assignment|undefined> {
+    const a:Assignment|undefined = this.assignments.find(a => a.id === id);
+    return of(a);
+  }
+
+  getAssignments(): Observable<Assignment[]> {
     return of(this.assignments);
   }
   

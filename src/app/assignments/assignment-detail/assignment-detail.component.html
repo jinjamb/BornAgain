@@ -5,6 +5,7 @@
             <mat-card-subtitle>{{assignmentTransmis.dateRendu | date: 'dd-MM-yyyy'}}</mat-card-subtitle>
             <mat-card-actions id="bottom">
                 <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">Devoir rendu</mat-checkbox>
+                <button mat-stroked-button color="primary" (click)="onClickEdit()">EDIT</button>
                 <button mat-flat-button id="delbutton" color="warn" (click)="onDeleteAssignment()">DELETE</button>
             </mat-card-actions>
         </mat-card-content>

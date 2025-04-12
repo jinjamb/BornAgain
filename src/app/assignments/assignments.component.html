@@ -1,5 +1,3 @@
-<p>assignments works!</p>
-
 <H2>Componant title is {{titre}}</H2>
 
 <!--<form ngForm (submit)="onSubmit(); assignmentForm.reset()"#assignmentForm class="form">
@@ -30,23 +28,31 @@
         }
     </div>
 }-->
-<app-add-assignment (assignmentAdded)="onAddedAssignment($event)" *ngIf="formVisible"></app-add-assignment>
+<!--<app-add-assignment (assignmentAdded)="onAddedAssignment($event)" *ngIf="formVisible"></app-add-assignment>-->
 
 
-<main *ngIf="!formVisible" class="container">
-    <button class="addBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClicked()">Ajouter un
-        devoir</button>
+<!--<main *ngIf="!formVisible" class="container">-->
+<main class="container">
+    <!--<button class="addBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClicked()">Ajouter un
+        devoir</button>-->
+    <div class="addBtn">
+        <a routerLink="/add">
+            <button class="addBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClicked()">Ajouter un devoir</button>
+        </a>
+    </div>
     <mat-list *ngFor="let assignment of assignments">
-        <h3 mat-subheader>{{assignment.dateRendu | date}}</h3>
-        <mat-list-item (click)="assignmentClicked(assignment)">
-            <p appRendu *ngIf="assignment.rendu; else nonrendu" class="rendu">
-                Devoir {{assignment.nom}} à été rendu.
-            </p>
-            <ng-template #nonrendu>
-                <p class="nonRendu">Devoir {{assignment.nom}} n'est pas rendu.</p>
-            </ng-template>
-            <mat-divider></mat-divider>
-        </mat-list-item>
+        <nav><a routerLink="/assignment/{{assignment.id}}">
+            <h3 mat-subheader>{{assignment.dateRendu | date}}</h3>
+            <mat-list-item (click)="assignmentClicked(assignment)">
+                <p appRendu *ngIf="assignment.rendu; else nonrendu" class="rendu">
+                    Devoir {{assignment.nom}} à été rendu.
+                </p>
+                <ng-template #nonrendu>
+                    <p class="nonRendu">Devoir {{assignment.nom}} n'est pas rendu.</p>
+                </ng-template>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </a></nav>
     </mat-list>
 </main>
-<app-assignment-detail [assignmentTransmis]="assignmentSelected" (deleteAssignment)="onDeleteAssignment($event)"></app-assignment-detail>
+<!--<app-assignment-detail [assignmentTransmis]="assignmentSelected" (deleteAssignment)="onDeleteAssignment($event)"></app-assignment-detail>-->
