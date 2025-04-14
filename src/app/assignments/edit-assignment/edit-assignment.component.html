@@ -18,3 +18,13 @@
     </form>
 </div>
 }
+@else {
+    <div class="container">
+        <h2>Chargement de l'assignment...</h2>
+        @if(isLoading) {
+            <p>Loading...</p>
+        } @else {
+            <p>Aucun assignment trouvé. Vérifiez l'identifiant ou le mode de navigation.</p>
+        }
+    </div>
+}
