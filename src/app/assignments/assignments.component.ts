@@ -86,6 +86,10 @@ export class AssignmentsComponent implements OnInit {
     }
   }
 
+  onLogin() {
+    console.log("Login clicked!");
+  }
+
   /*onNouvelAssignment(event: Assignment) {
     this.AssignmentsService.addAssignment(event).subscribe(message => console.log(message));
     this.formVisible = false;
