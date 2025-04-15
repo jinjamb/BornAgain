@@ -7,7 +7,7 @@ import { LoginPageComponent } from './assignments/login-page/login-page.componen
 import { authGuard } from './shared/auth.guard';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path:'home', component: AssignmentsComponent},
     {path:'add', component: AddAssignmentComponent},
     {path:'assignment/:id', component: AssignmentDetailComponent},
